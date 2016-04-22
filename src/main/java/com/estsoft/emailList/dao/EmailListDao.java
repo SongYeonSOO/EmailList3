@@ -1,4 +1,4 @@
-package com.estsoftemailList.dao;
+package com.estsoft.emailList.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,21 +8,35 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.estsoft.DB.DBConnection;
 import com.estsoft.DB.MySQLWebDBConnection;
-import com.estsoftemailList.vo.EmailListVo;
+import com.estsoft.emailList.vo.EmailListVo;
 @Repository
 public class EmailListDao {
+	
+/*	//기본생성자가 있으면 바로 받아올 수 있다.
+	@Autowired
+	//같은 인터페이스를 구현한 class의 bean이 container에 생성되는 경우에 사용함
+	@Qualifier("MySQLWebDBConnection")
+	private DBConnection dbConnection;
+	public EmailListDao(DBConnection dbConnection) {
+		this.dbConnection =  dbConnection;
+	}
+*/
+	
+	@Autowired
+	//같은 인터페이스를 구현한 class의 bean이 container에 생성되는 경우에 사용함
 	private DBConnection dbConnection;
 
+	
 	// 기본생성자로 container가 생성을 하기 때문에 만들어줘야함
 	public EmailListDao() {
 		this.dbConnection =  new MySQLWebDBConnection();
 	}
-
-	
 	// 이거하고싶으면 @autowired annotation이 아니라 <bean></bean> ~~~~해줘야하는데 지금은 하지마ㅡㅡ;
 	public EmailListDao(DBConnection mySQLWebDBConnection) {
 		this.dbConnection = mySQLWebDBConnection;
@@ -67,6 +81,7 @@ public class EmailListDao {
 				String email = rs.getString(4);
 
 				EmailListVo vo = new EmailListVo();
+				vo.setNo(no);
 				vo.setFirstName(firstName);
 				vo.setLastName(lastName);
 				vo.setEmail(email);

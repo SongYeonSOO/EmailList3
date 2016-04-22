@@ -28,7 +28,7 @@
 
 	<context:annotation-config />
 	<!-- scanning할 base- package 설정 -->
-	<context:component-scan base-package="com.estsoftemailList">
+	<context:component-scan base-package="com.estsoft">
 
 
 		<!--bean id="emailListDao" class="com.estsoft.emaillist.EmailistDao"></bean -->
@@ -44,6 +44,8 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
+	
+	<bean id="mySQLWebDbConnection" class="com.estsoft.DB.MySQLWebDBConnection"></bean>
 
 </beans> 
 	

@@ -32,11 +32,18 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<!-- MYSQL JDBC DRIVER(CONNECTOR) -->
-		<!-- 안정성이 높은거로 갑시다  -->
+		<!-- 안정성이 높은거로 갑시다 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.38</version>
+		</dependency>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 	</dependencies>

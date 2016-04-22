@@ -1,4 +1,4 @@
-package com.estsoftemailList.vo;
+package com.estsoft.emailList.vo;
 
 public class EmailListVo {
 private Long no;
